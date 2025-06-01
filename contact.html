@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us | ProConsult</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #1a237e;
+      --accent-color: #3949ab;
+      --light-bg: #f5f7fa;
+      --text-color: #333;
+      --border-radius: 8px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text-color);
+      background: var(--light-bg);
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: var(--primary-color);
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-container img {
+      height: 45px;
+      width: 45px;
+      margin-right: 0.5rem;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    header h1 {
+      font-size: 1.4rem;
+    }
+
+    nav a {
+      color: #fff;
+      margin-left: 1.2rem;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    main {
+      flex: 1;
+      padding: 4rem 2rem;
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+    }
+
+    main h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    main p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .btn {
+      padding: 0.8rem 1.5rem;
+      background: var(--accent-color);
+      color: white;
+      border: none;
+      border-radius: var(--border-radius);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 2rem;
+      background: var(--primary-color);
+      color: white;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.2rem;
+      }
+
+      .logo-container img {
+        height: 40px;
+        width: 40px;
+      }
+
+      nav a {
+        margin-left: 1rem;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-container">
+      <img src="jesse.jpg" alt="ProConsult Logo">
+      <h1>ProConsult</h1>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#courses">Courses</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Contact Us</h2>
+    <p>We’d love to hear from you! Whether you’re looking for a consultation or more learning resources, drop us a line.</p>
+    <a href="mailto:contact@proconsult.com" class="btn">Email Us</a>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 ProConsult. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

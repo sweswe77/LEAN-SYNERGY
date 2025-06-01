@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ProConsult | Consulting & Learning</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #1a237e;
+      --accent-color: #3949ab;
+      --light-bg: #f5f7fa;
+      --text-color: #333;
+      --border-radius: 8px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text-color);
+      background: var(--light-bg);
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: var(--primary-color);
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-container img {
+      height: 45px;
+      width: 45px;
+      margin-right: 0.5rem;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    header h1 {
+      font-size: 1.4rem;
+    }
+
+    nav a {
+      color: #fff;
+      margin-left: 1.2rem;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    .hero {
+      padding: 4rem 2rem;
+      text-align: center;
+      background: #e8eaf6;
+    }
+
+    .hero h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      max-width: 600px;
+      margin: auto;
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      padding: 0.8rem 1.5rem;
+      background: var(--accent-color);
+      color: white;
+      border: none;
+      border-radius: var(--border-radius);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    section {
+      padding: 3rem 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: var(--border-radius);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .card h3 {
+      color: var(--primary-color);
+      margin-bottom: 0.75rem;
+    }
+
+    video {
+      width: 100%;
+      border-radius: var(--border-radius);
+    }
+
+    .footer {
+      text-align: center;
+      padding: 2rem;
+      background: var(--primary-color);
+      color: white;
+    }
+
+    @media (max-width: 600px) {
+      .hero h2 {
+        font-size: 1.5rem;
+      }
+
+      header h1 {
+        font-size: 1.2rem;
+      }
+
+      .logo-container img {
+        height: 40px;
+        width: 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-container">
+      <img src="jesse.jpg" alt="ProConsult Logo">
+      <h1>ProConsult</h1>
+    </div>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#courses">Courses</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h2>Professional Consulting & Expert Video Lessons</h2>
+      <p>We empower individuals and businesses with strategic advice and on-demand learning.</p>
+      <a href="#services" class="btn">Get Started</a>
+    </section>
+
+    <section id="services">
+      <h2 style="text-align:center; margin-bottom: 2rem;">Our Consulting Services</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Business Strategy</h3>
+          <p>We help you clarify your goals, assess your market, and build winning strategies.</p>
+        </div>
+        <div class="card">
+          <h3>Marketing Solutions</h3>
+          <p>Optimize your digital presence with custom marketing campaigns and brand development.</p>
+        </div>
+        <div class="card">
+          <h3>1-on-1 Coaching</h3>
+          <p>Personal sessions to guide you through business decisions or career development.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="courses">
+      <h2 style="text-align:center; margin-bottom: 2rem;">Free Video Lessons</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Lesson 1: Intro to Business Strategy</h3>
+          <video controls>
+            <source src="sample-video.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="card">
+          <h3>Lesson 2: Building a Marketing Funnel</h3>
+          <video controls>
+            <source src="sample-video-2.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </section>
+
+    
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 ProConsult. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
