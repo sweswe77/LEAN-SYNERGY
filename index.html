@@ -2,16 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ProConsult | Consulting & Learning</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lean Synergy Solutions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
       --primary-color: #1a237e;
       --accent-color: #3949ab;
       --light-bg: #f5f7fa;
       --text-color: #333;
-      --border-radius: 8px;
+      --border-radius: 12px;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     }
 
     * {
@@ -20,25 +21,21 @@
       box-sizing: border-box;
     }
 
-    html, body {
-      height: 100%;
-    }
-
     body {
       font-family: 'Inter', sans-serif;
       color: var(--text-color);
       background: var(--light-bg);
-      display: flex;
-      flex-direction: column;
+      line-height: 1.6;
     }
 
     header {
       background: var(--primary-color);
       color: #fff;
-      padding: 0.75rem 1.5rem;
+      padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
     }
 
     .logo-container {
@@ -47,173 +44,324 @@
     }
 
     .logo-container img {
-      height: 45px;
-      width: 45px;
-      margin-right: 0.5rem;
+      height: 50px;
+      width: 50px;
+      margin-right: 1rem;
       border-radius: 50%;
       object-fit: cover;
     }
 
-    header h1 {
-      font-size: 1.4rem;
-    }
-
     nav a {
       color: #fff;
-      margin-left: 1.2rem;
+      margin-left: 1.5rem;
       text-decoration: none;
       font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--accent-color);
     }
 
     main {
-      flex: 1;
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
     }
 
-    .hero {
-      padding: 4rem 2rem;
+    h2 {
       text-align: center;
-      background: #e8eaf6;
-    }
-
-    .hero h2 {
-      font-size: 2rem;
+      font-size: 2.4rem;
+      color: var(--primary-color);
       margin-bottom: 1rem;
     }
 
+    section {
+      margin-bottom: 4rem;
+      background: #fff;
+      padding: 2.5rem 2rem;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      background: #e8eaf6;
+      padding: 4rem 2rem;
+      border-radius: var(--border-radius);
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+    }
+
     .hero p {
-      max-width: 600px;
-      margin: auto;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
+      color: #555;
       margin-bottom: 2rem;
     }
 
     .btn {
-      padding: 0.8rem 1.5rem;
       background: var(--accent-color);
       color: white;
-      border: none;
+      padding: 0.9rem 2rem;
+      font-weight: 700;
       border-radius: var(--border-radius);
       text-decoration: none;
-      font-weight: 600;
+      display: inline-block;
+      transition: background-color 0.3s ease;
     }
 
-    section {
-      padding: 3rem 2rem;
-      max-width: 1200px;
-      margin: auto;
+    .btn:hover {
+      background: var(--primary-color);
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
     }
 
+    .grid.grid-auto-fit {
+      grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 700px) {
+  .grid.grid-auto-fit {
+    grid-template-columns: 1fr;
+  }
+}
+    #core-values .grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
     .card {
-      background: #fff;
-      padding: 1.5rem;
+      background: #f9f9ff;
+      padding: 1.8rem 1.5rem;
       border-radius: var(--border-radius);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 2px 8px rgba(57, 73, 171, 0.15);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(57, 73, 171, 0.3);
     }
 
     .card h3 {
       color: var(--primary-color);
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.8rem;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
     }
 
-    video {
-      width: 100%;
-      border-radius: var(--border-radius);
+    .card h3 span.icon {
+      margin-right: 0.8rem;
+      font-size: 1.5rem;
     }
 
-    .footer {
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .tag {
+      background: var(--accent-color);
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 2rem;
+      font-size: 0.95rem;
+      white-space: nowrap;
+    }
+
+    #introduction p {
+      max-width: 900px;
+      margin: 1rem auto;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #444;
       text-align: center;
-      padding: 2rem;
+    }
+
+    footer {
       background: var(--primary-color);
       color: white;
+      text-align: center;
+      padding: 1.8rem 1rem;
+      margin-top: 4rem;
+      font-size: 0.9rem;
+      user-select: none;
+    }
+
+    footer a {
+      color: #bbdefb;
+      text-decoration: underline;
+    }
+
+    footer a:hover {
+      color: #90caf9;
+    }
+
+    @media (max-width: 900px) {
+      #core-values .grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 600px) {
-      .hero h2 {
-        font-size: 1.5rem;
+      h2 {
+        font-size: 2rem;
       }
 
-      header h1 {
-        font-size: 1.2rem;
+      .hero h1 {
+        font-size: 2rem;
       }
 
-      .logo-container img {
-        height: 40px;
-        width: 40px;
+      nav a {
+        margin-left: 1rem;
+        font-size: 0.9rem;
       }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <div class="logo-container">
-      <img src="jesse.jpg" alt="ProConsult Logo">
-      <h1>ProConsult</h1>
+<header>
+  <div class="logo-container">
+    <img src="Jessi.jpg" alt="Lean Synergy Logo" />
+    <h1>LEAN SYNERGY</h1>
+  </div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="courses.html">Courses</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero" id="hero">
+    <h1>Lean Synergy Solutions</h1>
+    <p>Empowering Efficiency, Enhancing Growth</p>
+    <a href="#services" class="btn">Get Started</a>
+  </section>
+
+  <section id="introduction">
+    <h2>✨ Who We Are</h2>
+    <p><strong>Lean Synergy Solutions</strong> is a dynamic startup based in <strong>Sierra Leone</strong> and operating beyond its borders. We are committed to empowering businesses and organizations to achieve <em>operational excellence</em> through the application of innovative solutions, lean methodologies, and cutting-edge digital transformation tools.</p>
+    <p>We specialize in delivering <strong>customized consulting services</strong>, process improvement strategies, and scalable digital transformation frameworks to help <strong>small and medium enterprises</strong> (SMEs) and <strong>manufacturing companies</strong> succeed in today’s fast-evolving market.</p>
+    <p>Our <strong>Sustainability Learning Lab</strong> focuses on <em>Innovation, Incubation, and Entrepreneurship</em>—nurturing grassroots innovators and entrepreneurial talents across Sierra Leone and the broader region.</p>
+  </section>
+
+  <section id="vision-mission">
+    <h2>🌟 Vision & Mission</h2>
+    <div class="grid grid-auto-fit">
+      <div class="card">
+        <h3><span class="icon">🎯</span>Our Vision</h3>
+        <p>To be the leading provider of <strong>Lean solutions</strong> that drive <em>operational excellence</em> and <em>business transformation</em>.</p>
+      </div>
+      <div class="card">
+        <h3><span class="icon">🚀</span>Our Mission</h3>
+        <p>To empower <strong>companies</strong> and <strong>SMEs</strong> to enhance productivity, reduce waste, and streamline operations through <em>Lean methodologies</em>, <em>Six Sigma principles</em>, <em>digital transformation strategies</em>, and our <strong>Sustainability Learning Lab</strong>.</p>
+      </div>
     </div>
-    <nav>
-      <a href="#services">Services</a>
-      <a href="#courses">Courses</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
+  </section>
+  
 
-  <main>
-    <section class="hero">
-      <h2>Professional Consulting & Expert Video Lessons</h2>
-      <p>We empower individuals and businesses with strategic advice and on-demand learning.</p>
-      <a href="#services" class="btn">Get Started</a>
-    </section>
+  <section id="core-values">
+    <h2>💡 Core Values</h2>
+    <div class="grid">
+      <div class="card">
+        <h3><span class="icon">💡</span>Innovation</h3>
+        <p>We embrace creativity and technology to solve complex challenges.</p>
+      </div>
+      <div class="card">
+        <h3><span class="icon">🔍</span>Integrity</h3>
+        <p>We operate with transparency, honesty, and accountability and strive for the highest standards in everything we do.</p>
+      </div>
+      <div class="card">
+        <h3><span class="icon">🤝</span>Collaboration</h3>
+        <p>We believe in the power of teamwork and partnerships.</p>
+      </div>
+      <div class="card">
+        <h3><span class="icon">🌱</span>Sustainability</h3>
+        <p>We promote solutions that are environmentally and socially responsible.</p>
+      </div>
+    </div>
+  </section>
+  
 
-    <section id="services">
-      <h2 style="text-align:center; margin-bottom: 2rem;">Our Consulting Services</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Business Strategy</h3>
-          <p>We help you clarify your goals, assess your market, and build winning strategies.</p>
-        </div>
-        <div class="card">
-          <h3>Marketing Solutions</h3>
-          <p>Optimize your digital presence with custom marketing campaigns and brand development.</p>
-        </div>
-        <div class="card">
-          <h3>1-on-1 Coaching</h3>
-          <p>Personal sessions to guide you through business decisions or career development.</p>
+  <section id="why-us">
+    <h2>🌈 Why Choose Us?</h2>
+    <div class="grid grid-auto-fit">
+      <div class="card">
+        <h3><span class="icon">📍</span>Local Expertise, Global Standards</h3>
+        <p>We combine deep knowledge of the Sierra Leonean market with international best practices to deliver world-class solutions.</p>
+      </div>
+      <div class="card">
+        <h3><span class="icon">🎯</span>Customized Solutions</h3>
+        <p>Each client is unique. Our services are tailored to their specific needs for maximum effectiveness and value.</p>
+      </div>
+      <div class="card">
+        <h3><span class="icon">⚙️</span>Proven Methodologies</h3>
+        <p>We use lean principles and advanced technologies to ensure measurable results and lasting impact.</p>
+      </div>
+      <div class="card">
+        <h3><span class="icon">🚀</span>Commitment to Growth</h3>
+        <p>We’re passionate about helping businesses grow, scale, and succeed sustainably in competitive markets.</p>
+      </div>
+    </div>
+  </section>
+  
+  <section id="services">
+    <h2>🛠️ Our Services</h2>
+    <div class="grid grid-auto-fit">
+      <div class="card">
+        <h3><span class="icon">📊</span>Business Consulting</h3>
+        <div class="tags">
+          <span class="tag">Strategic planning</span>
+          <span class="tag">Market analysis</span>
+          <span class="tag">Reengineering</span>
+          <span class="tag">Financial mgmt</span>
         </div>
       </div>
-    </section>
-
-    <section id="courses">
-      <h2 style="text-align:center; margin-bottom: 2rem;">Free Video Lessons</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Lesson 1: Intro to Business Strategy</h3>
-          <video controls>
-            <source src="sample-video.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div class="card">
-          <h3>Lesson 2: Building a Marketing Funnel</h3>
-          <video controls>
-            <source src="sample-video-2.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
+      <div class="card">
+        <h3><span class="icon">⚙️</span>Operational Excellence</h3>
+        <div class="tags">
+          <span class="tag">Lean improvement</span>
+          <span class="tag">Waste reduction</span>
+          <span class="tag">Resource opt.</span>
+          <span class="tag">Supply chain</span>
         </div>
       </div>
-    </section>
+      <div class="card">
+        <h3><span class="icon">🎓</span>Training & Capacity Building</h3>
+        <div class="tags">
+          <span class="tag">Lean workshops</span>
+          <span class="tag">Team development</span>
+          <span class="tag">Tech training</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3><span class="icon">💻</span>Technology Solutions</h3>
+        <div class="tags">
+          <span class="tag">Digital transformation</span>
+          <span class="tag">Software dev</span>
+          <span class="tag">Data analytics</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
 
-    
-  </main>
-
-  <footer class="footer">
-    <p>&copy; 2025 ProConsult. All rights reserved.</p>
-  </footer>
+<footer id="contact">
+  <p>Have questions? Email us at <a href="mailto:support@learnify.com">support@learnify.com</a></p>
+  <p>&copy; 2025 Learnify. All courses are free and open to the public.</p>
+</footer>
 
 </body>
 </html>

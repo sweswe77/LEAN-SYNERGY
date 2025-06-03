@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact Us | ProConsult</title>
+  <title>Contact Us | Lean Synergy</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -11,7 +11,8 @@
       --accent-color: #3949ab;
       --light-bg: #f5f7fa;
       --text-color: #333;
-      --border-radius: 8px;
+      --border-radius: 12px;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     }
 
     * {
@@ -30,15 +31,18 @@
       background: var(--light-bg);
       display: flex;
       flex-direction: column;
+      min-height: 100vh;
+      line-height: 1.6;
     }
 
     header {
       background: var(--primary-color);
       color: #fff;
-      padding: 0.75rem 1.5rem;
+      padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
     }
 
     .logo-container {
@@ -47,22 +51,27 @@
     }
 
     .logo-container img {
-      height: 45px;
-      width: 45px;
-      margin-right: 0.5rem;
+      height: 50px;
+      width: 50px;
+      margin-right: 1rem;
       border-radius: 50%;
       object-fit: cover;
     }
 
     header h1 {
-      font-size: 1.4rem;
+      font-size: 1.6rem;
     }
 
     nav a {
       color: #fff;
-      margin-left: 1.2rem;
+      margin-left: 1.5rem;
       text-decoration: none;
       font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--accent-color);
     }
 
     main {
@@ -76,34 +85,55 @@
     main h2 {
       font-size: 2rem;
       margin-bottom: 1rem;
+      color: var(--primary-color);
     }
 
     main p {
       font-size: 1.1rem;
       margin-bottom: 2rem;
       line-height: 1.6;
+      color: #444;
     }
 
     .btn {
       padding: 0.8rem 1.5rem;
-      background: var(--accent-color);
+      background: var(--primary-color);
       color: white;
       border: none;
       border-radius: var(--border-radius);
       text-decoration: none;
-      font-weight: 600;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
     }
 
-    .footer {
-      text-align: center;
-      padding: 2rem;
+    .btn:hover {
+      background: var(--accent-color);
+    }
+
+    footer {
       background: var(--primary-color);
       color: white;
+      text-align: center;
+      padding: 1.8rem 1rem;
+      font-size: 0.9rem;
+      user-select: none;
+      margin-top: auto;
+    }
+
+    footer a {
+      color: #bbdefb;
+      text-decoration: underline;
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+      color: #90caf9;
     }
 
     @media (max-width: 600px) {
       header h1 {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
       }
 
       .logo-container img {
@@ -122,13 +152,12 @@
 
   <header>
     <div class="logo-container">
-      <img src="jesse.jpg" alt="ProConsult Logo">
-      <h1>ProConsult</h1>
+      <img src="Jessi.jpg" alt="Lean Synergy Logo" />
+      <h1>LEAN SYNERGY</h1>
     </div>
     <nav>
       <a href="index.html">Home</a>
-      <a href="index.html#services">Services</a>
-      <a href="index.html#courses">Courses</a>
+      <a href="courses.html">Courses</a>
       <a href="contact.html">Contact</a>
     </nav>
   </header>
@@ -139,8 +168,9 @@
     <a href="mailto:contact@proconsult.com" class="btn">Email Us</a>
   </main>
 
-  <footer class="footer">
-    <p>&copy; 2025 ProConsult. All rights reserved.</p>
+  <footer>
+    <p>Have questions? Email us at <a href="mailto:support@learnify.com">support@learnify.com</a></p>
+    <p>&copy; 2025 Learnify. All courses are free and open to the public.</p>
   </footer>
 
 </body>

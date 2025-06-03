@@ -4,41 +4,217 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ProConsult Admin - Upload Videos</title>
-  <!-- same styles or minimal -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary-color: #1a237e;
+      --accent-color: #3949ab;
+      --light-bg: #f5f7fa;
+      --text-color: #333;
+      --border-radius: 12px;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text-color);
+      background: var(--light-bg);
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background: var(--primary-color);
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-container img {
+      height: 50px;
+      width: 50px;
+      margin-right: 1rem;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    header h1 {
+      font-size: 1.6rem;
+    }
+
+    nav a {
+      color: #fff;
+      margin-left: 1.5rem;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--accent-color);
+    }
+
+    main {
+      max-width: 700px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background: #fff;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+    }
+
+    main h2 {
+      font-size: 1.8rem;
+      color: var(--primary-color);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin-top: 1.2rem;
+      margin-bottom: 0.4rem;
+      font-weight: 600;
+      color: #333;
+    }
+
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: 0.7rem;
+      border: 2px solid var(--accent-color);
+      border-radius: var(--border-radius);
+      font-size: 1rem;
+      background: #fdfdff;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    input[type="file"] {
+      padding: 0.6rem;
+      border: 2px solid var(--accent-color);
+      border-radius: var(--border-radius);
+      font-size: 1rem;
+      background: #fdfdff;
+      width: 100%;
+    }
+
+    video {
+      width: 100%;
+      border-radius: var(--border-radius);
+      margin-top: 1.5rem;
+      display: none;
+    }
+
+    footer {
+      background: var(--primary-color);
+      color: white;
+      text-align: center;
+      padding: 1.8rem 1rem;
+      margin-top: auto;
+      font-size: 0.9rem;
+      user-select: none;
+    }
+
+    footer a {
+      color: #bbdefb;
+      text-decoration: underline;
+    }
+
+    footer a:hover {
+      color: #90caf9;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.3rem;
+      }
+
+      nav a {
+        margin-left: 1rem;
+        font-size: 0.9rem;
+      }
+
+      main h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <header style="background:#1a237e; color:white; padding:1rem; text-align:center;">
-    <h1>ProConsult Admin Panel</h1>
-  </header>
 
-  <main style="max-width:600px; margin:2rem auto; padding:1rem; background:#fff; border-radius:8px; box-shadow:0 4px 10px rgba(0,0,0,0.05); text-align:center;">
-    <h2>Upload Your Video Lesson</h2>
-    <input type="file" id="videoUpload" accept="video/*" />
-    <div style="margin-top:1.5rem;">
-      <video id="videoPreview" controls style="width: 100%; border-radius: 8px; display: none;">
-        <source id="videoSource" src="" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-    </div>
-  </main>
+<header>
+  <div class="logo-container">
+    <img src="Jessi.jpg" alt="Lean Synergy Logo" />
+    <h1>LEAN SYNERGY</h1>
+  </div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="courses.html">Courses</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
 
-  <script>
-    const videoUpload = document.getElementById('videoUpload');
-    const videoPreview = document.getElementById('videoPreview');
-    const videoSource = document.getElementById('videoSource');
+<main>
+  <h2>Upload Your Video Lesson</h2>
 
-    videoUpload.addEventListener('change', () => {
-      const file = videoUpload.files[0];
-      if (file) {
-        const fileURL = URL.createObjectURL(file);
-        videoSource.src = fileURL;
-        videoPreview.load();
-        videoPreview.style.display = 'block';
-      } else {
-        videoSource.src = '';
-        videoPreview.style.display = 'none';
-      }
-    });
-  </script>
+  <label for="videoTitle">Video Title</label>
+  <input type="text" id="videoTitle" placeholder="Enter the title of the video" />
+
+  <label for="videoDescription">Video Description</label>
+  <textarea id="videoDescription" placeholder="Enter a detailed description..."></textarea>
+
+  <label for="videoUpload">Choose Video File</label>
+  <input type="file" id="videoUpload" accept="video/*" />
+
+  <video id="videoPreview" controls>
+    <source id="videoSource" src="" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+</main>
+
+<footer>
+  <p>Have questions? Email us at <a href="mailto:support@learnify.com">support@learnify.com</a></p>
+  <p>&copy; 2025 Learnify. All courses are free and open to the public.</p>
+</footer>
+
+<script>
+  const videoUpload = document.getElementById('videoUpload');
+  const videoPreview = document.getElementById('videoPreview');
+  const videoSource = document.getElementById('videoSource');
+
+  videoUpload.addEventListener('change', () => {
+    const file = videoUpload.files[0];
+    if (file) {
+      const fileURL = URL.createObjectURL(file);
+      videoSource.src = fileURL;
+      videoPreview.load();
+      videoPreview.style.display = 'block';
+    } else {
+      videoSource.src = '';
+      videoPreview.style.display = 'none';
+    }
+  });
+</script>
+
 </body>
 </html>
