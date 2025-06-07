@@ -71,7 +71,7 @@
     }
 
     main {
-      max-width: 700px;
+      max-width: 900px;
       margin: 3rem auto;
       padding: 2rem;
       background: #fff;
@@ -95,7 +95,8 @@
     }
 
     input[type="text"],
-    textarea {
+    textarea,
+    input[type="file"] {
       width: 100%;
       padding: 0.7rem;
       border: 2px solid var(--accent-color);
@@ -109,20 +110,50 @@
       min-height: 100px;
     }
 
-    input[type="file"] {
-      padding: 0.6rem;
-      border: 2px solid var(--accent-color);
-      border-radius: var(--border-radius);
-      font-size: 1rem;
-      background: #fdfdff;
-      width: 100%;
-    }
-
     video {
       width: 100%;
       border-radius: var(--border-radius);
       margin-top: 1.5rem;
       display: none;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2rem;
+    }
+
+    th, td {
+      padding: 0.8rem;
+      text-align: left;
+      border-bottom: 1px solid #ccc;
+    }
+
+    th {
+      background: var(--accent-color);
+      color: #fff;
+    }
+
+    .pagination {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .pagination button {
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .pagination button:disabled {
+      background: #ccc;
+      cursor: not-allowed;
     }
 
     footer {
@@ -190,6 +221,24 @@
     <source id="videoSource" src="" type="video/mp4" />
     Your browser does not support the video tag.
   </video>
+
+  <table id="videoTable">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Title</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Items will be injected here -->
+    </tbody>
+  </table>
+
+  <div class="pagination">
+    <button id="prevBtn" disabled>Previous</button>
+    <button id="nextBtn">Next</button>
+  </div>
 </main>
 
 <footer>
@@ -214,6 +263,54 @@
       videoPreview.style.display = 'none';
     }
   });
+
+  // Sample data for testing pagination
+  const sampleVideos = Array.from({ length: 45 }, (_, i) => ({
+    title: `Sample Video ${i + 1}`,
+    description: `This is a description for video ${i + 1}`
+  }));
+
+  const itemsPerPage = 10;
+  let currentPage = 1;
+
+  function renderTable() {
+    const tbody = document.querySelector('#videoTable tbody');
+    tbody.innerHTML = '';
+
+    const start = (currentPage - 1) * itemsPerPage;
+    const end = start + itemsPerPage;
+    const pageItems = sampleVideos.slice(start, end);
+
+    pageItems.forEach((item, index) => {
+      const row = `<tr>
+        <td>${start + index + 1}</td>
+        <td>${item.title}</td>
+        <td>${item.description}</td>
+      </tr>`;
+      tbody.insertAdjacentHTML('beforeend', row);
+    });
+
+    document.getElementById('prevBtn').disabled = currentPage === 1;
+    document.getElementById('nextBtn').disabled = end >= sampleVideos.length;
+  }
+
+  document.getElementById('prevBtn').addEventListener('click', () => {
+    if (currentPage > 1) {
+      currentPage--;
+      renderTable();
+    }
+  });
+
+  document.getElementById('nextBtn').addEventListener('click', () => {
+    const maxPage = Math.ceil(sampleVideos.length / itemsPerPage);
+    if (currentPage < maxPage) {
+      currentPage++;
+      renderTable();
+    }
+  });
+
+  // Initial render
+  renderTable();
 </script>
 
 </body>
